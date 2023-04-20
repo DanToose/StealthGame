@@ -8,24 +8,36 @@ public class BasicInteract : MonoBehaviour
 
     private Ray g_ray = new Ray();
     public RaycastHit hitObject;
+
+    [Header("Raycast Settings")]
     public LayerMask layerToHit;
     public GraphicRaycaster raycaster;
     public float rayLength = 5f;
-
-    public bool rayHit;
-
     public Image CrosshairDot;
-    private bool nearInteractable;
-    private int numberInteractables;
+
+    [Header("Results")]
+    public bool rayHit;
     public bool canInteract;
     public GameObject interactiveObject;
+
+    [Header("Prompt Options")]
+    public bool interactablePromptsText;
+    public bool collectablePromptsText;
+    public bool carryablePromptsText;
+
+    //private bool nearInteractable;
+    //private int numberInteractables;
+
+
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         rayHit = false;
         canInteract = false;
-        numberInteractables = 0;
+        //numberInteractables = 0;
         CrosshairDot = GameObject.Find("CrosshairDot").GetComponent<Image>();
     }
 
@@ -36,12 +48,26 @@ public class BasicInteract : MonoBehaviour
 
         if (Physics.Raycast(g_ray, out hitObject, rayLength, layerToHit)) // If raycast hits collider 
         {
-            if (hitObject.collider.tag == "Interact") // if raycast hits collider with tag
+            if (hitObject.collider.tag == "Interact") // if raycast hits collider with tag - Implies a switch / device, not an object to pick up
             {
                 rayHit = true;
                 interactiveObject = hitObject.collider.gameObject;
                 //Debug.Log("Cursor over =" +interactiveObject);
             }
+            if (hitObject.collider.tag == "Collectable") // if raycast hits collider with tag - Implies thing to pick up and keep
+            {
+                rayHit = true;
+                interactiveObject = hitObject.collider.gameObject;
+                //Debug.Log("Cursor over =" +interactiveObject);
+            }
+
+            if (hitObject.collider.tag == "Carryable") // if raycast hits collider with tag - Implies thing to carry and put down.
+            {
+                rayHit = true;
+                interactiveObject = hitObject.collider.gameObject;
+                //Debug.Log("Cursor over =" +interactiveObject);
+            }
+
         }
         else // resets Raycast
         {
@@ -57,7 +83,6 @@ public class BasicInteract : MonoBehaviour
         {
             //Debug.Log("RaycastHit");
             CrosshairDot.GetComponent<Renderer>();
-            Debug.Log(CrosshairDot.color);
             CrosshairDot.color = Color.green;
             canInteract = true;
         }
@@ -81,7 +106,7 @@ public class BasicInteract : MonoBehaviour
     }
 
     
-    
+   /* OLD CODE FOR ALLY INTERACTION SYSTEM... KINDA CUTE, MIGHT DELETE LATER.
     public void AddInt()
     {
         numberInteractables++;
@@ -91,4 +116,6 @@ public class BasicInteract : MonoBehaviour
     {
         numberInteractables--;
     }
+   */
+
 }
