@@ -12,11 +12,8 @@ public class PickupThing : MonoBehaviour
     [Header("Events")]
     public GameEvent onThingAcquired;
 
-    private void Start()
-    {
 
-    }
-
+    // NOTE - You MUST have an event assigned here if you want to delete up the object, even if you don't need one, because the code will exit on a null event.
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,5 +22,10 @@ public class PickupThing : MonoBehaviour
             onThingAcquired.Raise(this, null);
             Destroy(gameObject);
         }
+    }
+
+    public void RemoveObject()
+    {
+        Destroy(gameObject);
     }
 }
