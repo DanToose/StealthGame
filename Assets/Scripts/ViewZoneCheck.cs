@@ -82,10 +82,12 @@ public class ViewZoneCheck : MonoBehaviour
         {
             if (hitThing.collider.tag != "PlayerBody")
             {
+                Debug.Log("Raycast hit a thing but NOT PlayerBoody. was " + hitThing.collider.tag);
                 inLOS = false;
             }
             else
             {
+                Debug.Log("RAYCAST HIT PLAYERBODY - WOOOOOOOOOOOOOOOOOO!");
                 if (lightChecker.gameObject.GetComponent<FPSLightCheck>().isVisible == true)
                 {
                     inLOS = true;
@@ -99,6 +101,7 @@ public class ViewZoneCheck : MonoBehaviour
         }
         else
         {
+            Debug.Log("Raycast hit nothing");
             inLOS = false;
         }
     }

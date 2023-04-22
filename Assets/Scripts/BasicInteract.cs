@@ -150,7 +150,7 @@ public class BasicInteract : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.Mouse0) && (interactiveObject != null))
             {
-                // interactiveObject.GetComponent<LightSwitch>().lightSwitchToggle(); - OLD SETUP FOR LIGHT SWITCH
+
                 if (targetIsCarryable)
                 {
 
@@ -162,6 +162,10 @@ public class BasicInteract : MonoBehaviour
                     Destroy(interactiveObject);
                     //interactiveObject.GetComponent<PickupThing>().RemoveObject();
                 }
+                else if (targetIsInteractive)
+                {
+                    interactiveObject.GetComponent<Interactable>().TriggerEvent();
+                }
 
 
             }
@@ -171,6 +175,7 @@ public class BasicInteract : MonoBehaviour
 
     }
 
+    // TWO FUNCTIONS FOR CARRYABLE OBJEECTS ONLY
     void CarryObject()
     {
         Debug.Log("CarryObject called!");

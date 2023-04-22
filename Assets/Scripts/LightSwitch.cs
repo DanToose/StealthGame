@@ -8,17 +8,6 @@ public class LightSwitch : MonoBehaviour
     public GameObject Light2;
     public GameObject Light3;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void lightSwitchToggle()
     {

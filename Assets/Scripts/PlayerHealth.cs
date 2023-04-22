@@ -16,6 +16,8 @@ public class PlayerHealth : MonoBehaviour
     public bool playerIsAlive;
     private bool readyToRespawn;
 
+    public CharacterController charController;
+
     public Text deathText;
     public Text respawnText;
     public Image deathPanel;
@@ -25,11 +27,14 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Ensure components are assigned
         healthText = GameObject.Find("Health").GetComponent<Text>();
         deathText = GameObject.Find("DeathText").GetComponent<Text>();
         respawnText = GameObject.Find("RespawnText").GetComponent<Text>();
         deathPanel = GameObject.Find("DeathPanel").GetComponent<Image>();
         lightCheck = GameObject.Find("lightChecker").GetComponent<FPSLightCheck>();
+        charController = GetComponent<CharacterController>();
+
         playerHealth = playerMaxHealth;
         healthText.text = "Health: " + playerHealth;
         playerIsAlive = true;
@@ -37,8 +42,6 @@ public class PlayerHealth : MonoBehaviour
         deathText.text = "";
         deathPanel.gameObject.SetActive(false);
 
-
-        //currentCheckpoint = GameObject.FindGameObjectWithTag("StartPoint");
     }
 
     // Update is called once per frame
@@ -72,6 +75,11 @@ public class PlayerHealth : MonoBehaviour
         // death stuff
         deathPanel.gameObject.SetActive(true);
         deathText.text = "You Died!";
+        playerIsAlive = false;
+
+        // CHAR CONTROLLER SHOULD STOP AT THIS POINT
+        charController.enabled = false;
+
         Invoke("RespawnFromDeath", respawnDelay);
 
     }
