@@ -64,7 +64,7 @@ public class NavmeshAgentScript : MonoBehaviour
             Debug.Break();
         }
 
-        if (wayPoints[0] = null)
+        if (wayPoints[0] == null)
         {
             Debug.LogError(gameObject + " has no starting waypoint! You MUST set one!");
             Debug.Break();
@@ -78,8 +78,8 @@ public class NavmeshAgentScript : MonoBehaviour
         if (jobIsStandGaurd)
         {
             AIState = 4;
-            gameObject.transform.position = wayPoints[0].transform.position;
-            gameObject.transform.rotation = wayPoints[0].transform.rotation;
+            transform.position = wayPoints[0].transform.position;
+            transform.rotation = wayPoints[0].transform.rotation;
         }
 
         if (jobIsPatrol)
