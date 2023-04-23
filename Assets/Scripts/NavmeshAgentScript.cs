@@ -178,5 +178,10 @@ public class NavmeshAgentScript : MonoBehaviour
                 AIState = 4;
             }
         }
+
+        if (AIState == 6)
+        {
+            // Set up to head to a location given by an alarm or something. Needs a 'Last Seen At'
+        }
     }
 }
