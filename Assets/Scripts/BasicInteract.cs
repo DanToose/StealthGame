@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
+public class IntEvent : UnityEvent<int> { }
 
 public class BasicInteract : MonoBehaviour
 {
@@ -23,6 +26,8 @@ public class BasicInteract : MonoBehaviour
     public bool targetIsInteractive; // is the thing an interactive device?
     public bool targetIsCollctable; // is the thing a collectable object?
     public bool targetIsCarryable; // is the thing something to pick and drop?
+
+    public IntEvent onInvItemTaken;
 
     [Header("Prompt Options")]
     public bool interactablePromptsText; // These are all a checkbox to see IF the player wants a popup or not.
@@ -51,7 +56,7 @@ public class BasicInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerInventory = GetComponent<BasicInventory>();
+        playerInventory = GameObject.Find("InventoryManager").GetComponent<BasicInventory>();
         rayHit = false;
         canInteract = false;
         //numberInteractables = 0;
@@ -158,7 +163,12 @@ public class BasicInteract : MonoBehaviour
                 }
                 else if (targetIsCollctable)
                 {
-                    playerInventory.AddInvItem(interactiveObject);
+                    /* SHITTY SYSTEM DT WAS MAKING
+                    string invName = interactiveObject.GetComponent<PickupThing>().inventoryItemName;
+                    Sprite invPic = interactiveObject.GetComponent<PickupThing>().invItemPicture;
+                    playerInventory.AddInvItem(invName, invPic);
+                    */
+                    onInvItemTaken?.Invoke(interactiveObject.GetComponent<InvItemID>().ID);
                     Destroy(interactiveObject);
                     //interactiveObject.GetComponent<PickupThing>().RemoveObject();
                 }
