@@ -20,7 +20,8 @@ public class ViewZoneCheck : MonoBehaviour
         hitLayers = LayerMask.GetMask("Player") | LayerMask.GetMask("Default") | LayerMask.GetMask("Environment");
         target = GameObject.FindGameObjectWithTag("PlayerBody").transform;
         sightRange = parent.GetComponent<NavmeshAgentScript>().sightRange;
-        //lightChecker = GameObject.Find("lightChecker");
+        lightChecker = GameObject.Find("lightChecker");
+
     }
 
    private void FixedUpdate()
@@ -59,7 +60,7 @@ public class ViewZoneCheck : MonoBehaviour
     {
         if (other.gameObject.tag == "PlayerBody")
         {
-            Debug.Log("Player left enemy view zone");
+            //Debug.Log("Player left enemy view zone");
             inLOS = false;
 
             if (parent.gameObject.GetComponent<NavmeshAgentScript>().AIState == 1)
@@ -82,12 +83,12 @@ public class ViewZoneCheck : MonoBehaviour
         {
             if (hitThing.collider.tag != "PlayerBody")
             {
-                Debug.Log("Raycast hit a thing but NOT PlayerBoody. was " + hitThing.collider.tag);
+                //Debug.Log("Raycast hit a thing but NOT PlayerBoody. was " + hitThing.collider.tag);
                 inLOS = false;
             }
             else
             {
-                Debug.Log("RAYCAST HIT PLAYERBODY - WOOOOOOOOOOOOOOOOOO!");
+                //Debug.Log("RAYCAST HIT PLAYERBODY - WOOOOOOOOOOOOOOOOOO!");
                 if (lightChecker.gameObject.GetComponent<FPSLightCheck>().isVisible == true)
                 {
                     inLOS = true;
@@ -101,7 +102,7 @@ public class ViewZoneCheck : MonoBehaviour
         }
         else
         {
-            Debug.Log("Raycast hit nothing");
+            //Debug.Log("Raycast hit nothing");
             inLOS = false;
         }
     }
