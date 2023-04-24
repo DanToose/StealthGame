@@ -5879,7 +5879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997555398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.961, y: 8.887121, z: 58.754}
+  m_LocalPosition: {x: -16.36, y: 8.887121, z: 58.754}
   m_LocalScale: {x: 2.3891, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8599,6 +8599,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1339748238}
     - target: {fileID: 1857893532508296040, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
+      propertyPath: jobIsStandGaurd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857893532508296040, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
       propertyPath: wayPoints.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8617,7 +8621,7 @@ PrefabInstance:
     - target: {fileID: 1857893532508296040, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
       propertyPath: wayPoints.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 345895726}
     - target: {fileID: 1857893532508296041, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -8781,7 +8785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6214146142209532699, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: ignoresLightCheck
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3528340788499914584, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
