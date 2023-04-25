@@ -6,10 +6,42 @@ public class InventorySystem : MonoBehaviour
 {
     public List<InventoryItem> Items = new List<InventoryItem>(); // Gens a list of Inventory Items, called Items
 
-    // Start is called before the first frame update
+    public Transform g_inventoryPanel;  // Reference to InventoryUI graphic (panel)
+    public List<InvSlotUi> g_slots = new List<InvSlotUi>();
+
+    void Awake()
+    {
+        foreach (Transform slotGraphic in g_inventoryPanel)
+        {
+            g_slots.Add(slotGraphic.GetComponent<InvSlotUi>());
+        }
+    }
 
     public void AddItem(InventoryItem item)
     {
-        Items.Add(item);
+        if (Items.Count < g_slots.Count) // checks there are free  slots
+            Items.Add(item);
+
+        foreach (InvSlotUi slot in g_slots)
+        {
+            if (slot.Item == null)
+            {
+                slot.SetItem(item);
+                return;
+            }
+        }
     }
+
+    public void RemoveItem(int itemToDrop)
+    {
+        Items.Remove(Items[itemToDrop]);
+        g_slots[itemToDrop].ClearItem(); //-- This was working at clearing a slot, but not removing it.
+
+        for (int i = itemToDrop; i < g_slots.Count - 1; i++) // This goes through the g_slots from the item dropped, and copies the next item 'down'
+        {
+            g_slots[i].SetItem(g_slots[i + 1].Item);
+        }
+
+    }
+
 }

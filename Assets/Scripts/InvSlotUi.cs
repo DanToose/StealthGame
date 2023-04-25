@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class InvSlotUi : MonoBehaviour
 {
-    public Text slotItemText;
-    public Image slotItemImage;
-    public Button slotButton;
+    public Text g_text;
+    public Image g_icon;
+    public Button g_button;
 
     private InventoryItem g_item; // local reference to Inventory Item in this script
     public InventoryItem Item { get { return g_item; } set { g_item = value; } }
@@ -16,8 +16,22 @@ public class InvSlotUi : MonoBehaviour
     public void SetItem(InventoryItem item)
     {
         this.g_item = item;
-        this.slotItemText.text = this.g_item.name; //Sets the text field to this item's name
-        this.slotItemImage.sprite = item.Sprite;
-        this.slotButton.interactable = true;
+        if (this.g_item == null)
+        {
+            ClearItem();
+            return;
+        }
+        this.g_text.text = this.g_item.name; //Sets the text field to this item's name
+        this.g_icon.sprite = item.Sprite;
+        this.g_button.interactable = true;
+    }
+
+    public void ClearItem()
+    {
+        Debug.Log("Setting fields to null for " + this.gameObject.name);
+        this.g_item = null;
+        this.g_text.text = null;
+        this.g_icon.sprite = null;
+        this.g_button.interactable = false;
     }
 }

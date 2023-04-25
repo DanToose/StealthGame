@@ -8,14 +8,15 @@ public class InvItemID : MonoBehaviour
     [SerializeField]
     private int item_id;
 
-    private GameObject player;
+    public GameObject player;
     private GameObject invManager;
+    public BasicInteract bi;
     public int ID { get { return item_id; } }
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player"); 
-        player.GetComponent<BasicInteract>().onInvItemTaken.AddListener(PickUpItem);
+        player = GameObject.FindGameObjectWithTag("Player");
+        player.gameObject.GetComponent<BasicInteract>().onInvItemTaken.AddListener(PickUpItem); // WTF does this have a reference problem?
         invManager = GameObject.Find("InventoryManager");
 
         // Event explained - onObjectClicked function from the raycast is the PUBLISHER
