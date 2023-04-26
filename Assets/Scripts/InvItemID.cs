@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class InvItemID : MonoBehaviour
 {
     public InventoryItem g_item;
@@ -9,8 +10,8 @@ public class InvItemID : MonoBehaviour
     private int item_id;
 
     public GameObject player;
-    private GameObject invManager;
-    public BasicInteract bi;
+    public GameObject invManager;
+
     public int ID { get { return item_id; } }
 
     private void Start()

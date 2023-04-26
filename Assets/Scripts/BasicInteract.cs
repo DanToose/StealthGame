@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 
+[Serializable]
 public class IntEvent : UnityEvent<int> { }
 
 public class BasicInteract : MonoBehaviour
 {
 
-    private BasicInventory playerInventory;
+    //private InventorySystem playerInventory;
+
+    // RAYCAST VARS
+    [Header("Raycast Settings")]
     private Ray g_ray = new Ray();
     public RaycastHit hitObject;
-
-    [Header("Raycast Settings")]
     public LayerMask layerToHit;
     public GraphicRaycaster raycaster;
-    public float rayLength = 5f;
+    public float rayLength = 5f; // Adjust this if you want to adjust the 'click to grab' distance
     public Image CrosshairDot;
 
+    // VARS FOR RAYCAST RESULTS - ALL ABOUT SHOWING BOOL RESULTS, NOT SETTING THEM!
     [Header("Results")]
     public bool rayHit;
     public bool canInteract; // a blanket check of if you can do SOMETHING with an object under the crosshair.
@@ -29,6 +33,7 @@ public class BasicInteract : MonoBehaviour
 
     public IntEvent onInvItemTaken;
 
+    // PROMPT SYSTEM VARS - All about options for showing prompts, and also for what text is shown when they fire.
     [Header("Prompt Options")]
     public bool interactablePromptsText; // These are all a checkbox to see IF the player wants a popup or not.
     public Text intPromptTxt;
@@ -41,32 +46,24 @@ public class BasicInteract : MonoBehaviour
     public string carryMessage;
     public string dropMessage;
 
-
-
-    //private bool nearInteractable;
-    //private int numberInteractables;
-
+    // CARRIED ITEM VARS
     private GameObject carriedItem;
     public Transform carryPoint;
     private Transform carryItemPosition;
     private Rigidbody rbOfCarriedItem;
 
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        playerInventory = GameObject.Find("InventoryManager").GetComponent<BasicInventory>();
+        //playerInventory = GameObject.Find("InventoryManager").GetComponent<InventorySystem>();
         rayHit = false;
         canInteract = false;
-        //numberInteractables = 0;
         CrosshairDot = GameObject.Find("CrosshairDot").GetComponent<Image>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (carriedItem != null)
+        if (carriedItem != null) // IF YOU ARE CARRYING SOMETHING, CHECKS FOR AN INPUT TO DROP IT.
         {
             if (Input.GetKeyUp(KeyCode.Mouse1))
             {
@@ -74,12 +71,12 @@ public class BasicInteract : MonoBehaviour
             }
         }
 
-        g_ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Raycast From Mouse Position if player is near an ally
-
-        if (Physics.Raycast(g_ray, out hitObject, rayLength, layerToHit)) // If raycast hits collider 
+        g_ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Raycast From Mouse Position 
+        if (Physics.Raycast(g_ray, out hitObject, rayLength, layerToHit)) // If raycast hits collider... 
         {
-            if (hitObject.collider.tag == "Interact") // if raycast hits collider with tag - Implies a switch / device, not an object to pick up
+            if (hitObject.collider.tag == "Interact") // If that collider has 'Interact' tag - Implies a switch / device, not an object to pick up
             {
+                // THIS STUFF IS ABOUT FIRING PROMPTS FOR SOMETHING YOU CAN INTERACT WITH IN THE WORLD
                 rayHit = true;
                 interactiveObject = hitObject.collider.gameObject;
                 targetIsInteractive = true;
@@ -90,8 +87,9 @@ public class BasicInteract : MonoBehaviour
                 }
 
             }
-            else if (hitObject.collider.tag == "Collectable") // if raycast hits collider with tag - Implies thing to pick up and keep
+            else if (hitObject.collider.tag == "Collectable") // If that collider has 'Collectable' tag - Implies thing to pick up and keep
             {
+                // THIS STUFF IS ABOUT FIRING PROMPTS FOR SOMETHING YOU CAN TAKE TO INVENTORY
                 rayHit = true;
                 targetIsCollctable = true;
                 interactiveObject = hitObject.collider.gameObject;
@@ -104,6 +102,7 @@ public class BasicInteract : MonoBehaviour
 
             else if (hitObject.collider.tag == "Carryable") // if raycast hits collider with tag - Implies thing to carry and put down.
             {
+                // THIS STUFF IS ABOUT FIRING PROMPTS FOR SOMETHING YOU CAN CARRY
                 rayHit = true;
                 interactiveObject = hitObject.collider.gameObject;
                 targetIsCarryable = true;
@@ -113,12 +112,12 @@ public class BasicInteract : MonoBehaviour
                     carryPromptTxt.enabled = true;
                     carryPromptTxt.text = carryMessage;
                 }
-
             }
-
         }
-        else // resets Raycast
+        else // IF RAYCAST DOESN'T HIT ONE OF THOSE THINGS, RESET RAYCAST AND DEACTIVATE ALL PROMPTS
         {
+            //ResetPrompts();
+
             rayHit = false;
             interactiveObject = null;
             canInteract = false;
@@ -127,11 +126,11 @@ public class BasicInteract : MonoBehaviour
             targetIsInteractive = false;
             collectPromptTxt.enabled = false;
             intPromptTxt.enabled = false;
-
-            //Debug.Log("allyToDirect = null");
+            if (carriedItem == null)
+            {
+                carryPromptTxt.enabled = false;
+            }
         }
-
-        GameObject.Find("CrosshairDot").GetComponent<Image>();
 
         if (rayHit == true) //Turns the Crosshair green
         {
@@ -148,41 +147,27 @@ public class BasicInteract : MonoBehaviour
             canInteract = false;
         }
 
-
         // THIS IS WHERE ACTUAL INTERACTIONS HAPPEN, AND RESULT IN CALLING FUNCTIONS APPROPRIATE FOR THAT.
 
         if (canInteract == true)
         {
             if (Input.GetKeyUp(KeyCode.Mouse0) && (interactiveObject != null))
             {
-
                 if (targetIsCarryable)
                 {
-
-                    CarryObject();
+                    CarryObject(); // PICKS IT UP, THAT'S IT.
                 }
                 else if (targetIsCollctable)
                 {
-                    /* SHITTY SYSTEM DT WAS MAKING
-                    string invName = interactiveObject.GetComponent<PickupThing>().inventoryItemName;
-                    Sprite invPic = interactiveObject.GetComponent<PickupThing>().invItemPicture;
-                    playerInventory.AddInvItem(invName, invPic);
-                    */
-                    onInvItemTaken?.Invoke(interactiveObject.GetComponent<InvItemID>().ID);
-                    Destroy(interactiveObject);
-                    //interactiveObject.GetComponent<PickupThing>().RemoveObject();
+                    onInvItemTaken?.Invoke(interactiveObject.GetComponent<InvItemID>().ID); // ADD TO INVENTORY LIST
+                    Destroy(interactiveObject); // REMOVE OBJECT FROM THE WORLD
                 }
                 else if (targetIsInteractive)
                 {
-                    interactiveObject.GetComponent<Interactable>().TriggerEvent();
+                    interactiveObject.GetComponent<Interactable>().TriggerEvent(); // ACTIVE THE 'TriggerEvent' FUNCTION ON THE OBJECT.
                 }
-
-
             }
         }
-
-
-
     }
 
     // TWO FUNCTIONS FOR CARRYABLE OBJEECTS ONLY
@@ -196,6 +181,8 @@ public class BasicInteract : MonoBehaviour
         carryItemPosition.parent = carryPoint;
         carriedItem.tag = ("Untagged");
         interactiveObject = null;
+
+        //ResetPrompts();
 
         carryPromptTxt.text = dropMessage;
 
@@ -213,6 +200,21 @@ public class BasicInteract : MonoBehaviour
 
     }
 
+    void ResetPrompts()
+    {
+        rayHit = false;
+        interactiveObject = null;
+        canInteract = false;
+        targetIsCarryable = false;
+        targetIsCollctable = false;
+        targetIsInteractive = false;
+        collectPromptTxt.enabled = false;
+        intPromptTxt.enabled = false;
+        if (carriedItem == null)
+        {
+            carryPromptTxt.enabled = false;
+        }
 
+    }
 
 }
