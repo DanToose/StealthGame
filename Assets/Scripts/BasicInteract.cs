@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
+using System.Runtime.CompilerServices;
 
 [Serializable]
 public class IntEvent : UnityEvent<int> { }
@@ -11,7 +12,7 @@ public class IntEvent : UnityEvent<int> { }
 public class BasicInteract : MonoBehaviour
 {
 
-    //private InventorySystem playerInventory;
+    private InventorySystem playerInventory;
 
     // RAYCAST VARS
     [Header("Raycast Settings")]
@@ -55,7 +56,7 @@ public class BasicInteract : MonoBehaviour
 
     void Start()
     {
-        //playerInventory = GameObject.Find("InventoryManager").GetComponent<InventorySystem>();
+        playerInventory = GameObject.Find("InventoryManager").GetComponent<InventorySystem>();
         rayHit = false;
         canInteract = false;
         CrosshairDot = GameObject.Find("CrosshairDot").GetComponent<Image>();
@@ -63,8 +64,10 @@ public class BasicInteract : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Alpha1))
+        if (Input.GetKeyUp(KeyCode.Alpha1)) // DIRTY HACK! JUST TESTS DROPPING/USING AN ITEM.
         {
+            int itemToDiscard = 0;
+            playerInventory.RemoveItem(itemToDiscard);
 
         }
         

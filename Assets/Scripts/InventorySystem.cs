@@ -56,9 +56,10 @@ public class InventorySystem : MonoBehaviour
         for (int i = itemToDrop; i < g_slots.Count - 1; i++) // This goes through the g_slots from the item dropped, and copies the next item 'down'
         {
             g_slots[i].SetItem(g_slots[i + 1].Item);
-            // MIGHT NEED AN IF STATEMENT TO CHECK IF A g_slot has null for an item, and if so, disable the slot.
+            if (g_slots[i].Item == null)
+            {
+                g_slots[i].gameObject.SetActive(false);
+            }
         }
-
     }
-
 }
