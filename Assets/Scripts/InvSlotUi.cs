@@ -9,8 +9,13 @@ public class InvSlotUi : MonoBehaviour
     public Image g_icon;
     public Button g_button;
 
-    private InventoryItem g_item; // local reference to Inventory Item in this script
+    public InventoryItem g_item; // local reference to Inventory Item in this script
     public InventoryItem Item { get { return g_item; } set { g_item = value; } }
+
+    private void Awake()
+    {
+        ClearItem();
+    }
 
     // SET ITEM
     public void SetItem(InventoryItem item)

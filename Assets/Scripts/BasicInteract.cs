@@ -63,6 +63,11 @@ public class BasicInteract : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.Alpha1))
+        {
+
+        }
+        
         if (carriedItem != null) // IF YOU ARE CARRYING SOMETHING, CHECKS FOR AN INPUT TO DROP IT.
         {
             if (Input.GetKeyUp(KeyCode.Mouse1))
