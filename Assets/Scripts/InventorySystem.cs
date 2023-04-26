@@ -9,6 +9,7 @@ public class InventorySystem : MonoBehaviour
     public Canvas invCanvas;
     public Transform g_inventoryPanel;  // Reference to InventoryUI graphic (panel)
     public List<InvSlotUi> g_slots = new List<InvSlotUi>();
+    public KeyCode inventoryKey;
 
     void Awake()
     {
@@ -26,7 +27,7 @@ public class InventorySystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Tab))
+        if (Input.GetKeyUp(inventoryKey))
         {
             invCanvas.enabled = !invCanvas.enabled;
         }

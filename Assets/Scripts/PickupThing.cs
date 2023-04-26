@@ -19,7 +19,7 @@ public class PickupThing : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && isRunOverPickUp)
         {
-            onThingAcquired.Raise(this, null);
+            CollectionEvent();
             Destroy(gameObject);
         }
     }
@@ -27,5 +27,10 @@ public class PickupThing : MonoBehaviour
     public void RemoveObject()
     {
         Destroy(gameObject);
+    }
+
+    public void CollectionEvent()
+    {
+        onThingAcquired.Raise(this, null);
     }
 }

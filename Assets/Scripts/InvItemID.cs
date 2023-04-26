@@ -9,8 +9,8 @@ public class InvItemID : MonoBehaviour
     [SerializeField]
     private int item_id;
 
-    public GameObject player;
-    public GameObject invManager;
+    private GameObject player;
+    private GameObject invManager;
 
     public int ID { get { return item_id; } }
 

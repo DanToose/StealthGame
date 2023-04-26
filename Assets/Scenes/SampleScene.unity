@@ -156,10 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ff5354d6fd9a84997007decf2e79c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_item: {fileID: 11400000, guid: 2a937f9cd4354c74c82d03a3ae337b2b, type: 2}
+  g_item: {fileID: 11400000, guid: 59653421780c5a044bb1d927d726fb2c, type: 2}
   item_id: 2
-  player: {fileID: 0}
-  invManager: {fileID: 0}
 --- !u!114 &28714728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3323,6 +3321,7 @@ MonoBehaviour:
   invCanvas: {fileID: 319191921}
   g_inventoryPanel: {fileID: 1089585963}
   g_slots: []
+  inventoryKey: 9
 --- !u!114 &254526823 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2699556339039717914, guid: 9d4eba6264fc5a44b864d0542f72c07b, type: 3}
@@ -3916,8 +3915,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   g_item: {fileID: 11400000, guid: 2a937f9cd4354c74c82d03a3ae337b2b, type: 2}
   item_id: 0
-  player: {fileID: 0}
-  invManager: {fileID: 0}
 --- !u!1 &464180811
 GameObject:
   m_ObjectHideFlags: 0
@@ -5481,10 +5478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ff5354d6fd9a84997007decf2e79c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_item: {fileID: 11400000, guid: 2a937f9cd4354c74c82d03a3ae337b2b, type: 2}
+  g_item: {fileID: 11400000, guid: 9a4cfc5cde1646d459b2a87d0d396b44, type: 2}
   item_id: 1
-  player: {fileID: 0}
-  invManager: {fileID: 0}
 --- !u!114 &877846093
 MonoBehaviour:
   m_ObjectHideFlags: 0

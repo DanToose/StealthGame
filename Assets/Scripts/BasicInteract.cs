@@ -168,6 +168,7 @@ public class BasicInteract : MonoBehaviour
                 else if (targetIsCollctable)
                 {
                     onInvItemTaken?.Invoke(interactiveObject.GetComponent<InvItemID>().ID); // ADD TO INVENTORY LIST
+                    interactiveObject.GetComponent<PickupThing>().CollectionEvent();
                     Destroy(interactiveObject); // REMOVE OBJECT FROM THE WORLD
                 }
                 else if (targetIsInteractive)

@@ -26,7 +26,7 @@ public class InvSlotUi : MonoBehaviour
             ClearItem();
             return;
         }
-        this.g_text.text = this.g_item.name; //Sets the text field to this item's name
+        this.g_text.text = item.Name;
         this.g_icon.sprite = item.Sprite;
         this.g_button.interactable = true;
     }
