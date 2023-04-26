@@ -223,7 +223,11 @@ public class BasicInteract : MonoBehaviour
         {
             carryPromptTxt.enabled = false;
         }
+    }
 
+    public void RunoverPickup(GameObject pickedUp)
+    {
+        onInvItemTaken?.Invoke(pickedUp.GetComponent<InvItemID>().ID); // ADD TO INVENTORY LIST
     }
 
 }
