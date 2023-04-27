@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4657141492041755394}
   - component: {fileID: 4657141492041755392}
   - component: {fileID: 4657141492041755406}
-  - component: {fileID: 4657141492041755407}
+  - component: {fileID: 1872855037059023802}
   m_Layer: 0
   m_Name: LightBox
   m_TagString: Light
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDeactivated: 0
   startDeactivated: 0
---- !u!54 &4657141492041755407
+--- !u!54 &1872855037059023802
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
