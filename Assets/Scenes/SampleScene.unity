@@ -7181,6 +7181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4139642994171465458, guid: 037dcbc5e0a669745a4328c7ca244f48, type: 3}
+      propertyPath: m_TagString
+      value: StartPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 4139642994171465462, guid: 037dcbc5e0a669745a4328c7ca244f48, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -7231,6 +7235,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4139642994171465463, guid: 037dcbc5e0a669745a4328c7ca244f48, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139642994171465463, guid: 037dcbc5e0a669745a4328c7ca244f48, type: 3}
+      propertyPath: isStartpointOnly
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
