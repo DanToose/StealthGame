@@ -46,7 +46,7 @@ public class TextPopup : MonoBehaviour
                 if (textNumber >= popupTexts.Length)
                 {
                     messagePlayed = true;
-                    onTextExhausted.Raise(this, null);
+                    onTextExhausted.Raise(this, null); // NEED TO ESNURE REPEATABLE DOESN'T FIRE THIS AGAIN
                     ResetTextField();
                 }
                 if (textNumber < popupTexts.Length)
@@ -69,8 +69,6 @@ public class TextPopup : MonoBehaviour
             {
                 textField.text = initialMessage;
             }
-
-            //textFieldObject.gameObject.SetActive(true);
             fieldIsActive = true;
         }
     }
@@ -86,7 +84,7 @@ public class TextPopup : MonoBehaviour
 
     private void ResetTextField()
     {
-        Debug.Log("Reset Text Field called");
+        //Debug.Log("Reset Text Field called");
         if (isRepeatableMessage)
         {
             textNumber = 0;
@@ -96,7 +94,7 @@ public class TextPopup : MonoBehaviour
         {
             textField.text = ("");
         }
-        //textField.gameObject.SetActive(false);
+
         textField.enabled = false;
         fieldIsActive = false;
     }

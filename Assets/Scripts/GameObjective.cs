@@ -17,12 +17,12 @@ public class GameObjective : MonoBehaviour
 
     private GameObject objManager;
 
-    private void Start()
+    private void Awake()
     {
         objManager = GameObject.Find("ObjectiveManager");
         if (objectiveActive)
         {
-            this.StartQuest();
+            StartQuest();
         }
     }
 

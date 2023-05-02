@@ -15,7 +15,7 @@ public class ObjSlotUI : MonoBehaviour
     public GameObjective Objective { get { return o_obj; } set { o_obj = value; } }
     void Awake()
     {
-        //ClearObj();
+        ClearObj();
     }
 
     public void SetObj(GameObjective obj)
@@ -34,9 +34,9 @@ public class ObjSlotUI : MonoBehaviour
 
     public void ClearObj()
     {
-        Debug.Log("Setting fields to null for " + this.gameObject.name);
+        //Debug.Log("Setting fields to null for " + this.gameObject.name);
         this.o_obj = null;
-        this.o_ID = new int();
+        //this.o_ID = new int();
         this.o_text.text = null;
         this.o_button.interactable = false;
     }

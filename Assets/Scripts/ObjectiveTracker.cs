@@ -56,19 +56,23 @@ public class ObjectiveTracker : MonoBehaviour
 
     public void RemoveObj(int objID)
     {
+        int testIndex = 0;
         int slotIndex = 0;
         bool indexFound = false;
-        foreach (ObjSlotUI slot in o_slots)
+        foreach (ObjSlotUI slot in o_slots) // This should find the slot index, then remove that objective 
         {
+            //Debug.Log("slot.o_ID: " + slot.o_ID + " objID: " + objID + " and slotIndex: " + slotIndex);
             if (slot.o_ID == objID && !indexFound)
             {
-                Objectives.Remove(Objectives[slotIndex]);
-                o_slots[slotIndex].ClearObj(); //-- This was working at clearing a slot, but not removing it.
+                Debug.Log("slot.o_ID and objID match" + objID);
+                slotIndex = testIndex;
                 indexFound = true;
             }
-            slotIndex++;
+            testIndex++;
         }
-        
+
+        Objectives.Remove(Objectives[slotIndex]);
+        o_slots[slotIndex].ClearObj();
 
 
         for (int i = slotIndex; i < o_slots.Count - 1; i++) // This goes through the g_slots from the item dropped, and copies the next item 'down'
@@ -82,3 +86,20 @@ public class ObjectiveTracker : MonoBehaviour
     }
 
 }
+
+/*  SLOT DETECTION SYSTEM
+ *         int slotIndex = 0;
+        bool indexFound = false;
+        foreach (ObjSlotUI slot in o_slots) // This should find the slot index, then remove that objective 
+        {
+            Debug.Log("slot.o_ID: " + slot.o_ID + " objID: " + objID + " and slotIndex: " + slotIndex);
+            if (slot.o_ID == objID && !indexFound)
+            {
+                Debug.Log("slot.o_ID and objID match" + objID);
+                Objectives.Remove(Objectives[slotIndex]);
+                o_slots[slotIndex].ClearObj();
+                indexFound = true;
+            }
+            slotIndex++;
+        }
+*/
