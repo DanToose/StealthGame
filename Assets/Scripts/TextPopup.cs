@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class TextPopup : MonoBehaviour
 {
-    private string initialMessage;
+    public string initialMessage;
     public string[] popupTexts;
     public KeyCode keyToAdvanceText;
     private int textNumber;
     private bool fieldIsActive;
     public Text textField;
     public GameObject textFieldObject;
+    public bool isRepeatableMessage;
+    private bool messagePlayed;
     private bool keyWasPressed;
 
     [Header("Events")]
@@ -22,9 +24,9 @@ public class TextPopup : MonoBehaviour
     {
         textFieldObject = GameObject.Find("PopupText");
         textField = textFieldObject.GetComponent<Text>();
-        initialMessage = textField.text;
         fieldIsActive = false;
         textField.enabled = false;
+        messagePlayed = false;
 
         //textFieldObject.SetActive(false);
         textNumber = 0;
@@ -39,19 +41,22 @@ public class TextPopup : MonoBehaviour
 
         if (fieldIsActive == true && keyWasPressed)
         {
-            Debug.Log("TN = " + textNumber);
-            
-            if (textNumber >= popupTexts.Length)
+            if (!messagePlayed)
             {
-                onTextExhausted.Raise(this, null);
-                ResetTextField();
+                if (textNumber >= popupTexts.Length)
+                {
+                    messagePlayed = true;
+                    onTextExhausted.Raise(this, null);
+                    ResetTextField();
+                }
+                if (textNumber < popupTexts.Length)
+                {
+                    textField.text = popupTexts[textNumber];
+                    textNumber++;
+                    //keyWasPressed = false;
+                }
             }
-            if (textNumber < popupTexts.Length)
-            {
-                textField.text = popupTexts[textNumber];
-                textNumber++;
-                //keyWasPressed = false;
-            }
+
         }
     }
 
@@ -60,6 +65,11 @@ public class TextPopup : MonoBehaviour
         if (other.gameObject.tag == "Player" && fieldIsActive == false)
         {
             textField.enabled = true;
+            if (textNumber == 0)
+            {
+                textField.text = initialMessage;
+            }
+
             //textFieldObject.gameObject.SetActive(true);
             fieldIsActive = true;
         }
@@ -77,8 +87,15 @@ public class TextPopup : MonoBehaviour
     private void ResetTextField()
     {
         Debug.Log("Reset Text Field called");
-        textNumber = 0;
-        textField.text = initialMessage;
+        if (isRepeatableMessage)
+        {
+            textNumber = 0;
+            textField.text = initialMessage;
+        }
+        else
+        {
+            textField.text = ("");
+        }
         //textField.gameObject.SetActive(false);
         textField.enabled = false;
         fieldIsActive = false;

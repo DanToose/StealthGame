@@ -15,7 +15,7 @@ public class ObjSlotUI : MonoBehaviour
     public GameObjective Objective { get { return o_obj; } set { o_obj = value; } }
     void Awake()
     {
-        ClearObj();
+        //ClearObj();
     }
 
     public void SetObj(GameObjective obj)
@@ -29,8 +29,6 @@ public class ObjSlotUI : MonoBehaviour
 
         this.o_text.text = obj.objectiveName;
         this.o_ID = obj.objectiveID;
-        //stepsDisplay = obj.objectivePartsTotal.ToString();
-        //this.o_parts.text = stepsDisplay;
         this.o_button.interactable = true;
     }
 
@@ -40,7 +38,6 @@ public class ObjSlotUI : MonoBehaviour
         this.o_obj = null;
         this.o_ID = new int();
         this.o_text.text = null;
-        //this.o_parts.text = null;
         this.o_button.interactable = false;
     }
 }

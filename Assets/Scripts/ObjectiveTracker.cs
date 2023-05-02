@@ -36,13 +36,11 @@ public class ObjectiveTracker : MonoBehaviour
 
     public void AddObjective(GameObjective obj)
     {
-        //objectiveList.Add(obj);
-
         Debug.Log("AddObjective called " + obj);
         if (Objectives.Count < o_slots.Count) // checks there are free  slots
         {
             Objectives.Add(obj);
-            Debug.Log("Objectives.Add fired");
+            //Debug.Log("Objectives.Add fired");
         }
 
         foreach (ObjSlotUI slot in o_slots)

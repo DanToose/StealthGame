@@ -3324,6 +3324,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 999628363}
     m_Modifications:
     - target: {fileID: 5369045992556719697, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
+      propertyPath: initialMessage
+      value: Press E for message...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369045992556719697, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
       propertyPath: onTextExhausted
       value: 
       objectReference: {fileID: 11400000, guid: d4a31fba10b8ff342b1abc32ee53c493, type: 2}
@@ -9811,6 +9815,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 999628363}
     m_Modifications:
     - target: {fileID: 5369045992556719697, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
+      propertyPath: initialMessage
+      value: Press E for message...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369045992556719697, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
       propertyPath: onTextExhausted
       value: 
       objectReference: {fileID: 11400000, guid: d4a31fba10b8ff342b1abc32ee53c493, type: 2}
@@ -9974,6 +9982,10 @@ PrefabInstance:
     - target: {fileID: 6495301313565098397, guid: 5512f276e974df04d92dfe40306c7c96, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495301314549701156, guid: 5512f276e974df04d92dfe40306c7c96, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6495301315400301166, guid: 5512f276e974df04d92dfe40306c7c96, type: 3}
       propertyPath: m_AnchorMax.x
