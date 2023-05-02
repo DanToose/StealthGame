@@ -14,6 +14,8 @@ public class TextPopup : MonoBehaviour
     public GameObject textFieldObject;
     private bool keyWasPressed;
 
+    [Header("Events")]
+    public GameEvent onTextExhausted;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,9 @@ public class TextPopup : MonoBehaviour
         textField = textFieldObject.GetComponent<Text>();
         initialMessage = textField.text;
         fieldIsActive = false;
-        textFieldObject.SetActive(false);
+        textField.enabled = false;
+
+        //textFieldObject.SetActive(false);
         textNumber = 0;
     }
 
@@ -38,7 +42,8 @@ public class TextPopup : MonoBehaviour
             Debug.Log("TN = " + textNumber);
             
             if (textNumber >= popupTexts.Length)
-            {              
+            {
+                onTextExhausted.Raise(this, null);
                 ResetTextField();
             }
             if (textNumber < popupTexts.Length)
@@ -54,7 +59,8 @@ public class TextPopup : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && fieldIsActive == false)
         {
-            textFieldObject.gameObject.SetActive(true);
+            textField.enabled = true;
+            //textFieldObject.gameObject.SetActive(true);
             fieldIsActive = true;
         }
     }
@@ -73,7 +79,8 @@ public class TextPopup : MonoBehaviour
         Debug.Log("Reset Text Field called");
         textNumber = 0;
         textField.text = initialMessage;
-        textField.gameObject.SetActive(false);
+        //textField.gameObject.SetActive(false);
+        textField.enabled = false;
         fieldIsActive = false;
     }
 }

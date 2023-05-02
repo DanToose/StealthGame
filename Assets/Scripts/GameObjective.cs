@@ -8,18 +8,21 @@ public class GameObjective : MonoBehaviour
     public string objectiveName;
     public bool objectiveActive;
     public bool objectiveCompleted;
-    public int objectiveStepTotal;
+    public int objectivePartsTotal;
     public int objectiveStep;
 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        objectiveCompleted = false;
+    [Header("Events")]
+    public GameEvent onObjectiveActivated;
+    public GameEvent onObjectiveCompleted;
 
-        if (objectiveStepTotal < 1)
+    private GameObject objManager;
+
+    private void Start()
+    {
+        objManager = GameObject.Find("ObjectiveManager");
+        if (objectiveActive)
         {
-            objectiveStepTotal = 1;
+            this.StartQuest();
         }
     }
 
@@ -27,15 +30,18 @@ public class GameObjective : MonoBehaviour
     {
         Debug.Log("Objective " + objectiveName + " started.");
         objectiveActive = true;
+        objManager.GetComponent<ObjectiveTracker>().AddObjective(this);
+        onObjectiveActivated.Raise(this, null);
     }
 
     // Update is called once per frame
     public void AddQuestStep()
     {
         objectiveStep++;
-        if (objectiveStep == objectiveStepTotal)
+        if (objectiveStep == objectivePartsTotal)
         {
             objectiveCompleted = true;
+            objManager.GetComponent<ObjectiveTracker>().RemoveObj(objectiveID);
             Debug.Log("Objective " + objectiveName + " complete.");
         }
     }

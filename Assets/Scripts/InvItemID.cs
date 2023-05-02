@@ -17,7 +17,7 @@ public class InvItemID : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        player.gameObject.GetComponent<BasicInteract>().onInvItemTaken.AddListener(PickUpItem); // WTF does this have a reference problem?
+        player.gameObject.GetComponent<BasicInteract>().onInvItemTaken.AddListener(PickUpItem); 
         invManager = GameObject.Find("InventoryManager");
 
         // Event explained - onObjectClicked function from the raycast is the PUBLISHER

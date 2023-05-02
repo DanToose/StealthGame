@@ -23,7 +23,7 @@ public class InventorySystem : MonoBehaviour
         }
 
         invCanvas.enabled = false;
-}
+    }
 
     private void Update()
     {
