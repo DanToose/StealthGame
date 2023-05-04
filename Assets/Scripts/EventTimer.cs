@@ -8,6 +8,7 @@ public class EventTimer : MonoBehaviour
     public float timeLeft;
     public bool timerOn;
     public Text timerText;
+    public bool hideFromHUD;
 
     [Header("Events")]
     public GameEvent onTimerStarts;
@@ -51,7 +52,11 @@ public class EventTimer : MonoBehaviour
 
     public void ActivateTimer()
     {
-        timerText.enabled = true;
+        if (!hideFromHUD)
+        {
+            timerText.enabled = true;
+        }
+
         timerOn = true;
         onTimerStarts.Raise(this, null);
     }
