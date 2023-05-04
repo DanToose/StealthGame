@@ -16,7 +16,7 @@ public class EventTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        timerText.enabled = false;
     }
 
     // Update is called once per frame
@@ -51,6 +51,7 @@ public class EventTimer : MonoBehaviour
 
     public void ActivateTimer()
     {
+        timerText.enabled = true;
         timerOn = true;
         onTimerStarts.Raise(this, null);
     }
@@ -59,5 +60,6 @@ public class EventTimer : MonoBehaviour
     {
         timerOn = false;
         timerText.text = "";
+        timerText.enabled = false;
     }
 }
