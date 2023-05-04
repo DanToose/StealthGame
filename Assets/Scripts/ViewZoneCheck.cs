@@ -8,6 +8,7 @@ public class ViewZoneCheck : MonoBehaviour
     public Vector3 guardPosition;
     public Transform target;
     private float sightRange;
+    private float guardHeightOffset = 0.417f;
     private RaycastHit hitThing;
     public bool inLOS = false;
     public Vector3 direction;
@@ -73,7 +74,7 @@ public class ViewZoneCheck : MonoBehaviour
     private void RayCastCheck()
     {
         guardPosition = parent.transform.position;
-        guardPosition.y = 0.417f;
+        guardPosition.y = parent.transform.position.y + guardHeightOffset;
 
         direction = (target.transform.position - guardPosition).normalized; //direction FROM guard towards player    
         Ray g_ray = new Ray(guardPosition, direction);

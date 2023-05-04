@@ -24,6 +24,10 @@ public class PlayerHealth : MonoBehaviour
 
     public FPSLightCheck lightCheck;
 
+    [Header("Events")]
+    public GameEvent onPlayerDies;
+    public GameEvent onPlayerResawns;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +80,7 @@ public class PlayerHealth : MonoBehaviour
         deathPanel.gameObject.SetActive(true);
         deathText.text = "You Died!";
         playerIsAlive = false;
-
+        onPlayerDies.Raise(this, null);
         // CHAR CONTROLLER SHOULD STOP AT THIS POINT
         charController.enabled = false;
 
@@ -94,6 +98,7 @@ public class PlayerHealth : MonoBehaviour
     {
         playerHealth = playerMaxHealth;
         playerIsAlive = true;
+        onPlayerResawns.Raise(this, null);
         respawn.RespawnPlayer();
     }
 }
