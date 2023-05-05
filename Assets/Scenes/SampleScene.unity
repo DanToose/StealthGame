@@ -4677,6 +4677,8 @@ GameObject:
   - component: {fileID: 907617498}
   - component: {fileID: 907617497}
   - component: {fileID: 907617502}
+  - component: {fileID: 907617504}
+  - component: {fileID: 907617505}
   m_Layer: 0
   m_Name: Thing-CarryMe
   m_TagString: Carryable
@@ -4699,7 +4701,7 @@ MonoBehaviour:
   isCollectableToInv: 0
   isCarryable: 1
   isRunOverPickUp: 0
-  onThingAcquired: {fileID: 11400000, guid: 4df44f858ba2aa34c9ac9bf0f4268fd3, type: 2}
+  onThingAcquired: {fileID: 11400000, guid: 230100862a50a3748b61eb53ad44a674, type: 2}
 --- !u!65 &907617498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4794,6 +4796,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &907617504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907617496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f14fdf3dc310154b9ab4b1a1836756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 230100862a50a3748b61eb53ad44a674, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: EnableCollider, Assembly-CSharp
+        m_MethodName: ToggleCollider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &907617505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907617496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e93dff5782b554885fa918de371f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 907617502}
+  thisCollider: {fileID: 907617498}
 --- !u!4 &949085335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8694150777438182144, guid: 5d4c5a5def93f984b8cc9132275601e4, type: 3}
@@ -5318,6 +5362,7 @@ MonoBehaviour:
   timeLeft: 69
   timerOn: 0
   timerText: {fileID: 1177336159}
+  hideFromHUD: 0
   onTimerStarts: {fileID: 11400000, guid: b9ddb1f7136c97940b4c024e1765f892, type: 2}
   onTimerEnds: {fileID: 11400000, guid: b9ddb1f7136c97940b4c024e1765f892, type: 2}
 --- !u!4 &1067402014
@@ -5922,6 +5967,10 @@ PrefabInstance:
     - target: {fileID: 1857893532508296046, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
       propertyPath: m_Name
       value: Enemy-StandingGuard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857893532508296046, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7841058508270634667, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
       propertyPath: guardHeightOffset
@@ -7365,9 +7414,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1570068177}
     - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: boxCollider
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: intPromptTxt
       value: 
       objectReference: {fileID: 894096719}
+    - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: meshCollider
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: useInventory
       value: 1
@@ -7376,6 +7433,10 @@ PrefabInstance:
       propertyPath: carryPromptTxt
       value: 
       objectReference: {fileID: 304301613}
+    - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: capsuleCollider
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: collectPromptTxt
       value: 
@@ -7387,6 +7448,10 @@ PrefabInstance:
     - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: carryablePromptsText
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: snapRotationOnPickup
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: collectablePromptsText
@@ -8297,6 +8362,10 @@ PrefabInstance:
     - target: {fileID: 1857893532508296046, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
       propertyPath: m_Name
       value: Enemy-PatrollingGuard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857893532508296046, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3201149136487089536, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
       propertyPath: player
