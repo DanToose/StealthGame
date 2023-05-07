@@ -3444,7 +3444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5369045992556719697, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
       propertyPath: popupTexts.Array.data[2]
-      value: 
+      value: Go - Return when you find one.
       objectReference: {fileID: 0}
     - target: {fileID: 5369045992556719698, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
       propertyPath: m_Name
@@ -6885,7 +6885,8 @@ MonoBehaviour:
   updateThis: {fileID: 1659433774}
   newPopupTexts:
   - You got me the shiny.
-  - I will never forget your ompliance.
+  - Now, the shiny is mine!
+  - I will never forget how easy you were to boss around <3
   existingTextFields: 0
   onNewTextExhausted: {fileID: 11400000, guid: c893cf3a9a8ea9942b4a15dbd0ec22d7, type: 2}
 --- !u!114 &1659433779
