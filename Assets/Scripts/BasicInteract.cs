@@ -215,7 +215,7 @@ public class BasicInteract : MonoBehaviour
     void DropObject()
     {
         d_ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Raycast From Mouse Position 
-        if (Physics.Raycast(d_ray, out dropHitObject, 1.13f, dropLayerToHit))
+        if (Physics.Raycast(d_ray, out dropHitObject, 1.13f, dropLayerToHit)) // RAYCAST IS HARD CODED - Change to match your Z distance on carryPoint
         {
             Debug.Log("Can't drop atm");
         }

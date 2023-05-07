@@ -49,6 +49,22 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    public int IdentifySlotFromItemType(InventoryItem name)
+    {
+        int slotIndex = 0;
+        int foundAtIndex = -1;
+        foreach (InvSlotUi slot in g_slots)
+        {
+            if (slot.Item == name)
+            {
+                foundAtIndex = slotIndex;
+            }
+            slotIndex++;
+        }
+
+        return foundAtIndex;
+    }
+
     public void RemoveItem(int itemToDrop)
     {
         Items.Remove(Items[itemToDrop]);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,15 +38,17 @@ public class TextPopup : MonoBehaviour
     private void Update()
     {
         keyWasPressed = false;
-        keyWasPressed = Input.GetKeyDown(keyToAdvanceText);
+        keyWasPressed = Input.GetKeyUp(keyToAdvanceText);
 
         if (fieldIsActive == true && keyWasPressed)
         {
             if (textNumber >= popupTexts.Length)
             {
+                Debug.Log("About to check !messagePlayed - " + messagePlayed);
                 if (!messagePlayed)
                 {
                     onTextExhausted.Raise(this, null); // NEED TO ESNURE REPEATABLE DOESN'T FIRE THIS AGAIN
+                    Debug.Log("Found as !messagePlayed - Called onTextExhausted");
                 }
                 messagePlayed = true;
                 ResetTextField();
@@ -59,7 +62,7 @@ public class TextPopup : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player" && fieldIsActive == false)
         {
@@ -67,6 +70,7 @@ public class TextPopup : MonoBehaviour
             if (textNumber == 0)
             {
                 textField.text = initialMessage;
+                messagePlayed = false; //NEW TRY
             }
             fieldIsActive = true;
         }
@@ -95,5 +99,14 @@ public class TextPopup : MonoBehaviour
 
         textField.enabled = false;
         fieldIsActive = false;
+
     }
+
+    public void ResetPopupTexts(int length)
+    {
+        Array.Resize<string>(ref popupTexts, length);
+        popupTexts = new string[length];
+        //Debug.Log("RESIZE TO: " + popupTexts.Length);
+    }
+
 }

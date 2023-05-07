@@ -2539,6 +2539,95 @@ Transform:
   m_Father: {fileID: 1717064876}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &104582955
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2035281572}
+    m_Modifications:
+    - target: {fileID: 410524873569241310, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: itemToLose
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a4cfc5cde1646d459b2a87d0d396b44, type: 2}
+    - target: {fileID: 410524873569241310, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: objectiveID
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241310, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: objectiveName
+      value: Return the shiny to Fred
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241310, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: involvesItemLoss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241310, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: onObjectiveActivated
+      value: 
+      objectReference: {fileID: 11400000, guid: b9ddb1f7136c97940b4c024e1765f892, type: 2}
+    - target: {fileID: 410524873569241310, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: onObjectiveCompleted
+      value: 
+      objectReference: {fileID: 11400000, guid: b9ddb1f7136c97940b4c024e1765f892, type: 2}
+    - target: {fileID: 410524873569241311, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: gameEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: c893cf3a9a8ea9942b4a15dbd0ec22d7, type: 2}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241312, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410524873569241313, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: gameEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 4fa13b8774a845d419ec66a0fa33212d, type: 2}
+    - target: {fileID: 410524873569241315, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
+      propertyPath: m_Name
+      value: Objective2a
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4fdff4ef5b862654cadae1d10ce6f026, type: 3}
 --- !u!1 &161153629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3515,7 +3604,11 @@ MonoBehaviour:
   objectiveCompleted: 0
   objectivePartsTotal: 1
   objectiveStep: 0
-  onObjectiveActivated: {fileID: 11400000, guid: 4df44f858ba2aa34c9ac9bf0f4268fd3, type: 2}
+  involvesItem: 1
+  itemRequired: {fileID: 11400000, guid: 9a4cfc5cde1646d459b2a87d0d396b44, type: 2}
+  involvesItemLoss: 0
+  itemToLose: {fileID: 0}
+  onObjectiveActivated: {fileID: 11400000, guid: b9ddb1f7136c97940b4c024e1765f892, type: 2}
   onObjectiveCompleted: {fileID: 11400000, guid: 4fa13b8774a845d419ec66a0fa33212d, type: 2}
 --- !u!1001 &513335344
 PrefabInstance:
@@ -3784,6 +3877,10 @@ MonoBehaviour:
   objectiveCompleted: 0
   objectivePartsTotal: 1
   objectiveStep: 0
+  involvesItem: 0
+  itemRequired: {fileID: 0}
+  involvesItemLoss: 0
+  itemToLose: {fileID: 0}
   onObjectiveActivated: {fileID: 11400000, guid: 4df44f858ba2aa34c9ac9bf0f4268fd3, type: 2}
   onObjectiveCompleted: {fileID: 11400000, guid: 4df44f858ba2aa34c9ac9bf0f4268fd3, type: 2}
 --- !u!1 &539685018
@@ -4611,7 +4708,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ef37dd13f3d7d7c459ee53abf4d3c49e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6787,10 +6884,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateThis: {fileID: 1659433774}
   newPopupTexts:
-  - You got the shiny.
+  - You got me the shiny.
   - I will never forget your ompliance.
   existingTextFields: 0
-  onNewTextExhausted: {fileID: 11400000, guid: b9ddb1f7136c97940b4c024e1765f892, type: 2}
+  onNewTextExhausted: {fileID: 11400000, guid: c893cf3a9a8ea9942b4a15dbd0ec22d7, type: 2}
 --- !u!114 &1659433779
 MonoBehaviour:
   m_ObjectHideFlags: 0

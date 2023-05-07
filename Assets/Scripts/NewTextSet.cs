@@ -19,28 +19,31 @@ public class NewTextSet : MonoBehaviour
 
     public void UpdateTextFields()
     {
+        existingTextFields = updateThis.popupTexts.Length;
+
+        if (newPopupTexts.Length != existingTextFields)
+        {
+            updateThis.ResetPopupTexts(newPopupTexts.Length);
+            //updateThis.popupTexts[] = new string popupTexts[newPopupTexts.Length];
+        }
+
+
         int linesDone = 0;
+
         foreach (string textField in newPopupTexts)
         {
             Debug.Log("Text field " + linesDone + " updating");
+            if (updateThis.popupTexts[linesDone] == null)
             updateThis.popupTexts[linesDone] = newPopupTexts[linesDone];
             linesDone++;
         }
 
-        if (existingTextFields > newPopupTexts.Length)
-        {
-            while (linesDone <= existingTextFields - 1)
-            {
-                updateThis.popupTexts[linesDone] = null;
-                linesDone++;
-            }
-        }
+        Debug.Log("exist: " + existingTextFields + " new: " + newPopupTexts.Length);
 
-        updateThis.messagePlayed = false;
         updateThis.onTextExhausted = onNewTextExhausted;
         updateThis.isRepeatableMessage = true;
         updateThis.ResetTextField();
         updateThis.isRepeatableMessage = false;
-
+        updateThis.messagePlayed = false;
     }
 }
