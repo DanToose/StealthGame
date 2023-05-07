@@ -259,6 +259,7 @@ MonoBehaviour:
   isCollectableToInv: 1
   isCarryable: 0
   isRunOverPickUp: 0
+  isOverlappingCollider: 0
   onThingAcquired: {fileID: 11400000, guid: 9924b917c9757844e9a7cd6f7b79f396, type: 2}
 --- !u!65 &28714729
 BoxCollider:
@@ -2992,6 +2993,7 @@ MonoBehaviour:
   isCollectableToInv: 1
   isCarryable: 0
   isRunOverPickUp: 0
+  isOverlappingCollider: 0
   onThingAcquired: {fileID: 11400000, guid: 4df44f858ba2aa34c9ac9bf0f4268fd3, type: 2}
 --- !u!65 &434231954
 BoxCollider:
@@ -4439,6 +4441,7 @@ MonoBehaviour:
   isCollectableToInv: 0
   isCarryable: 0
   isRunOverPickUp: 1
+  isOverlappingCollider: 0
   onThingAcquired: {fileID: 11400000, guid: 4df44f858ba2aa34c9ac9bf0f4268fd3, type: 2}
 --- !u!65 &796475699
 BoxCollider:
@@ -4573,6 +4576,7 @@ MonoBehaviour:
   isCollectableToInv: 1
   isCarryable: 0
   isRunOverPickUp: 0
+  isOverlappingCollider: 0
   onThingAcquired: {fileID: 11400000, guid: 701efc73140765442b81de2eace14f73, type: 2}
 --- !u!65 &877846094
 BoxCollider:
@@ -4677,9 +4681,7 @@ GameObject:
   - component: {fileID: 907617498}
   - component: {fileID: 907617497}
   - component: {fileID: 907617502}
-  - component: {fileID: 907617504}
-  - component: {fileID: 907617505}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Thing-CarryMe
   m_TagString: Carryable
   m_Icon: {fileID: 0}
@@ -4701,6 +4703,7 @@ MonoBehaviour:
   isCollectableToInv: 0
   isCarryable: 1
   isRunOverPickUp: 0
+  isOverlappingCollider: 0
   onThingAcquired: {fileID: 11400000, guid: 230100862a50a3748b61eb53ad44a674, type: 2}
 --- !u!65 &907617498
 BoxCollider:
@@ -4788,7 +4791,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907617496}
   serializedVersion: 2
-  m_Mass: 1000
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -4796,48 +4799,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &907617504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907617496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f14fdf3dc310154b9ab4b1a1836756e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 230100862a50a3748b61eb53ad44a674, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EnableCollider, Assembly-CSharp
-        m_MethodName: ToggleCollider
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &907617505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907617496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e93dff5782b554885fa918de371f4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 907617502}
-  thisCollider: {fileID: 907617498}
 --- !u!4 &949085335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8694150777438182144, guid: 5d4c5a5def93f984b8cc9132275601e4, type: 3}
@@ -5009,6 +4970,7 @@ MonoBehaviour:
   isCollectableToInv: 1
   isCarryable: 0
   isRunOverPickUp: 0
+  isOverlappingCollider: 0
   onThingAcquired: {fileID: 11400000, guid: 6d5c6f7274399a54682cf3562f4b125a, type: 2}
 --- !u!65 &987672684
 BoxCollider:
@@ -5552,6 +5514,7 @@ MonoBehaviour:
   isCollectableToInv: 0
   isCarryable: 0
   isRunOverPickUp: 1
+  isOverlappingCollider: 0
   onThingAcquired: {fileID: 11400000, guid: 4697db286017ee7428cd49dd524b79b7, type: 2}
 --- !u!65 &1132496276
 BoxCollider:
@@ -5970,7 +5933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1857893532508296046, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7841058508270634667, guid: e4bea1915735ee745a456835b1ab83f5, type: 3}
       propertyPath: guardHeightOffset
@@ -6523,7 +6486,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20076
+  m_Name: pb_Mesh19594
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7345,6 +7308,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.84
       objectReference: {fileID: 0}
+    - target: {fileID: 1395490513419503844, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395490513419503851, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.38755563
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395490513419503851, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.38755563
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395490513419503851, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.38755563
+      objectReference: {fileID: 0}
     - target: {fileID: 2041821498561232928, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: respawn
       value: 
@@ -7452,6 +7431,10 @@ PrefabInstance:
     - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: snapRotationOnPickup
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: dropLayerToHit.m_Bits
+      value: 2177
       objectReference: {fileID: 0}
     - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: collectablePromptsText

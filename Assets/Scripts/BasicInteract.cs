@@ -56,6 +56,9 @@ public class BasicInteract : MonoBehaviour
     private Transform carryItemPosition;
     private Rigidbody rbOfCarriedItem;
 
+    private Ray d_ray = new Ray();
+    public RaycastHit dropHitObject;
+    public LayerMask dropLayerToHit;
 
     void Start()
     {
@@ -66,6 +69,7 @@ public class BasicInteract : MonoBehaviour
         rayHit = false;
         canInteract = false;
         CrosshairDot = GameObject.Find("CrosshairDot").GetComponent<Image>();
+        carriedItem = null;
     }
 
     void Update()
@@ -194,7 +198,8 @@ public class BasicInteract : MonoBehaviour
     {
         Debug.Log("CarryObject called!");
         rbOfCarriedItem = interactiveObject.GetComponent<Rigidbody>();
-        rbOfCarriedItem.useGravity = false; 
+        rbOfCarriedItem.useGravity = false;
+        rbOfCarriedItem.isKinematic = true;  // kinematic try
         carriedItem = interactiveObject;
         carryItemPosition.position = carryPoint.position;
         carryItemPosition.parent = carryPoint;
@@ -209,14 +214,22 @@ public class BasicInteract : MonoBehaviour
 
     void DropObject()
     {
-        Debug.Log("Drop object called!");
-        carriedItem.tag = ("Carryable");
-        rbOfCarriedItem.useGravity = true;
-        carryItemPosition.parent = null;
-        carriedItem = null;
+        d_ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Raycast From Mouse Position 
+        if (Physics.Raycast(d_ray, out dropHitObject, 1.13f, dropLayerToHit))
+        {
+            Debug.Log("Can't drop atm");
+        }
+        else
+        {
+            Debug.Log("Drop object called!");
+            carriedItem.tag = ("Carryable");
+            rbOfCarriedItem.useGravity = true;
+            rbOfCarriedItem.isKinematic = false;  // kinematic try
+            carryItemPosition.parent = null;
+            carriedItem = null;
 
-        carryPromptTxt.text = " ";
-
+            carryPromptTxt.text = " ";
+        }
     }
 
     void ResetPrompts()
