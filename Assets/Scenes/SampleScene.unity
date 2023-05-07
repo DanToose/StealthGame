@@ -3338,6 +3338,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 6f6f76cbce2200f44830c388aa31383e, type: 2}
     - target: {fileID: 5369045992556719697, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
+      propertyPath: isRepeatableMessage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369045992556719697, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
       propertyPath: popupTexts.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -3512,7 +3516,7 @@ MonoBehaviour:
   objectivePartsTotal: 1
   objectiveStep: 0
   onObjectiveActivated: {fileID: 11400000, guid: 4df44f858ba2aa34c9ac9bf0f4268fd3, type: 2}
-  onObjectiveCompleted: {fileID: 11400000, guid: 4df44f858ba2aa34c9ac9bf0f4268fd3, type: 2}
+  onObjectiveCompleted: {fileID: 11400000, guid: 4fa13b8774a845d419ec66a0fa33212d, type: 2}
 --- !u!1001 &513335344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5329,7 +5333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067402011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1082.9382, y: -521.2156, z: -97.84653}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6155,6 +6159,86 @@ Transform:
   m_Father: {fileID: 1717064876}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1488909101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488909102}
+  - component: {fileID: 1488909104}
+  - component: {fileID: 1488909103}
+  m_Layer: 5
+  m_Name: ObjectiveEventDoneText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1488909102
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488909101}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.45185003, y: 0.45185003, z: 0.45185003}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 343915694}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 135}
+  m_SizeDelta: {x: 2400, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1488909103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488909101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.15467203, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 72
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 7
+    m_MaxSize: 72
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: ' '
+--- !u!222 &1488909104
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488909101}
+  m_CullTransparentMesh: 1
 --- !u!1 &1511936980
 GameObject:
   m_ObjectHideFlags: 0
@@ -6673,6 +6757,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1659433773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5369045992556719698, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
+  m_PrefabInstance: {fileID: 481444677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1659433774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5369045992556719697, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
+  m_PrefabInstance: {fileID: 481444677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659433773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e5c394cdcb8bb449811a29fec7020e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1659433778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659433773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4de3e7f48b801b45b50b3c3078cdbe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateThis: {fileID: 1659433774}
+  newPopupTexts:
+  - You got the shiny.
+  - I will never forget your ompliance.
+  existingTextFields: 0
+  onNewTextExhausted: {fileID: 11400000, guid: b9ddb1f7136c97940b4c024e1765f892, type: 2}
+--- !u!114 &1659433779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659433773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f14fdf3dc310154b9ab4b1a1836756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 4fa13b8774a845d419ec66a0fa33212d, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1659433778}
+        m_TargetAssemblyTypeName: NewTextSet, Assembly-CSharp
+        m_MethodName: UpdateTextFields
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1665518887
 GameObject:
   m_ObjectHideFlags: 0
@@ -7214,13 +7360,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945517888}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.45185, y: 0.45185, z: 0.45185}
+  m_LocalScale: {x: 0.45185003, y: 0.45185003, z: 0.45185003}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1821551993}
-  m_RootOrder: 1
+  m_Father: {fileID: 343915694}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -7234,7 +7380,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945517888}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -7260,7 +7406,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Objective message happens here
+  m_Text: ' '
 --- !u!222 &1945517891
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7627,6 +7773,14 @@ PrefabInstance:
       propertyPath: questStartTune
       value: 
       objectReference: {fileID: 8300000, guid: 39715b57e213ea8418e5ff1549c9dae3, type: 3}
+    - target: {fileID: 1516223543967533379, guid: 691540cd5315bed4a882ee4a07201e3c, type: 3}
+      propertyPath: objMessageField
+      value: 
+      objectReference: {fileID: 1945517890}
+    - target: {fileID: 1516223543967533379, guid: 691540cd5315bed4a882ee4a07201e3c, type: 3}
+      propertyPath: objDoneMessageField
+      value: 
+      objectReference: {fileID: 1488909103}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 691540cd5315bed4a882ee4a07201e3c, type: 3}
 --- !u!1001 &1902767945668427136

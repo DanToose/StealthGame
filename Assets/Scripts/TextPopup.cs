@@ -8,12 +8,12 @@ public class TextPopup : MonoBehaviour
     public string initialMessage;
     public string[] popupTexts;
     public KeyCode keyToAdvanceText;
-    private int textNumber;
-    private bool fieldIsActive;
+    public int textNumber;
+    public bool fieldIsActive; 
     public Text textField;
     public GameObject textFieldObject;
     public bool isRepeatableMessage;
-    private bool messagePlayed;
+    public bool messagePlayed;
     private bool keyWasPressed;
 
     [Header("Events")]
@@ -41,26 +41,25 @@ public class TextPopup : MonoBehaviour
 
         if (fieldIsActive == true && keyWasPressed)
         {
-            if (!messagePlayed)
+            if (textNumber >= popupTexts.Length)
             {
-                if (textNumber >= popupTexts.Length)
+                if (!messagePlayed)
                 {
-                    messagePlayed = true;
                     onTextExhausted.Raise(this, null); // NEED TO ESNURE REPEATABLE DOESN'T FIRE THIS AGAIN
-                    ResetTextField();
                 }
-                if (textNumber < popupTexts.Length)
-                {
-                    textField.text = popupTexts[textNumber];
-                    textNumber++;
-                    //keyWasPressed = false;
-                }
+                messagePlayed = true;
+                ResetTextField();
+            }
+            if (textNumber < popupTexts.Length && fieldIsActive)
+            {
+                textField.text = popupTexts[textNumber];
+                textNumber++;
             }
 
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && fieldIsActive == false)
         {
@@ -82,9 +81,8 @@ public class TextPopup : MonoBehaviour
         }
     }
 
-    private void ResetTextField()
+    public void ResetTextField()
     {
-        //Debug.Log("Reset Text Field called");
         if (isRepeatableMessage)
         {
             textNumber = 0;

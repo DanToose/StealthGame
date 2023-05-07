@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectiveTracker : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class ObjectiveTracker : MonoBehaviour
     public float qStartVolume = 1.0f;
     public AudioClip questEndTune;
     public float qEndVolume = 1.0f;
+
+    public Text objMessageField;
+    public Text objDoneMessageField;
 
     // Start is called before the first frame update
     void Start()
