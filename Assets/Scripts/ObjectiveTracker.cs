@@ -10,6 +10,12 @@ public class ObjectiveTracker : MonoBehaviour
     public List<ObjSlotUI> o_slots = new List<ObjSlotUI>();
     public KeyCode objectivesKey;
 
+    public AudioSource sourceToPlay;
+    public AudioClip questStartTune;
+    public float qStartVolume = 1.0f;
+    public AudioClip questEndTune;
+    public float qEndVolume = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +46,7 @@ public class ObjectiveTracker : MonoBehaviour
         if (Objectives.Count < o_slots.Count) // checks there are free  slots
         {
             Objectives.Add(obj);
+            sourceToPlay.PlayOneShot(questStartTune, qStartVolume);
             //Debug.Log("Objectives.Add fired");
         }
 
@@ -56,6 +63,7 @@ public class ObjectiveTracker : MonoBehaviour
 
     public void RemoveObj(int objID)
     {
+        sourceToPlay.PlayOneShot(questEndTune, qEndVolume);
         int testIndex = 0;
         int slotIndex = 0;
         bool indexFound = false;
@@ -86,20 +94,3 @@ public class ObjectiveTracker : MonoBehaviour
     }
 
 }
-
-/*  SLOT DETECTION SYSTEM
- *         int slotIndex = 0;
-        bool indexFound = false;
-        foreach (ObjSlotUI slot in o_slots) // This should find the slot index, then remove that objective 
-        {
-            Debug.Log("slot.o_ID: " + slot.o_ID + " objID: " + objID + " and slotIndex: " + slotIndex);
-            if (slot.o_ID == objID && !indexFound)
-            {
-                Debug.Log("slot.o_ID and objID match" + objID);
-                Objectives.Remove(Objectives[slotIndex]);
-                o_slots[slotIndex].ClearObj();
-                indexFound = true;
-            }
-            slotIndex++;
-        }
-*/
