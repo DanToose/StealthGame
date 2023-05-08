@@ -3448,7 +3448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5369045992556719698, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
       propertyPath: m_Name
-      value: TextPopupZone (1)
+      value: TextZone-ShinyQuest
       objectReference: {fileID: 0}
     - target: {fileID: 5369045992556719701, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
       propertyPath: m_RootOrder
@@ -4639,7 +4639,7 @@ GameObject:
   - component: {fileID: 877846093}
   - component: {fileID: 877846092}
   m_Layer: 0
-  m_Name: Thing-ClickToPick (1)
+  m_Name: Shiny-ClickToPick
   m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6888,6 +6888,7 @@ MonoBehaviour:
   - Now, the shiny is mine!
   - I will never forget how easy you were to boss around <3
   existingTextFields: 0
+  newTextIsRepeatable: 0
   onNewTextExhausted: {fileID: 11400000, guid: c893cf3a9a8ea9942b4a15dbd0ec22d7, type: 2}
 --- !u!114 &1659433779
 MonoBehaviour:
