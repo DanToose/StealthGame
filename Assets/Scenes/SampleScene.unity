@@ -5435,7 +5435,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1067402015
 MonoBehaviour:
@@ -7664,7 +7664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3387978276766116246, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3387978276766116246, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7802,14 +7802,14 @@ PrefabInstance:
     - target: {fileID: 1516223543843759206, guid: 691540cd5315bed4a882ee4a07201e3c, type: 3}
       propertyPath: gameEvent
       value: 
-      objectReference: {fileID: 11400000, guid: 6d5c6f7274399a54682cf3562f4b125a, type: 2}
+      objectReference: {fileID: 11400000, guid: d4a31fba10b8ff342b1abc32ee53c493, type: 2}
     - target: {fileID: 1516223543967533376, guid: 691540cd5315bed4a882ee4a07201e3c, type: 3}
       propertyPath: m_Name
       value: ObjectiveManager
       objectReference: {fileID: 0}
     - target: {fileID: 1516223543967533378, guid: 691540cd5315bed4a882ee4a07201e3c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1516223543967533378, guid: 691540cd5315bed4a882ee4a07201e3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8179,7 +8179,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2699556339039717909, guid: 9d4eba6264fc5a44b864d0542f72c07b, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2699556339039717909, guid: 9d4eba6264fc5a44b864d0542f72c07b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9264,7 +9264,7 @@ PrefabInstance:
       objectReference: {fileID: 1089585963}
     - target: {fileID: 8281613780986701751, guid: ade386d1abb633f43a82be0083ba7951, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8281613780986701751, guid: ade386d1abb633f43a82be0083ba7951, type: 3}
       propertyPath: m_LocalPosition.x

@@ -28,8 +28,6 @@ public class TextPopup : MonoBehaviour
         fieldIsActive = false;
         textField.enabled = false;
         messagePlayed = false;
-
-        //textFieldObject.SetActive(false);
         textNumber = 0;
     }
 
@@ -40,20 +38,19 @@ public class TextPopup : MonoBehaviour
         keyWasPressed = false;
         keyWasPressed = Input.GetKeyUp(keyToAdvanceText);
 
-        if (fieldIsActive == true && keyWasPressed)
+        if (fieldIsActive == true && keyWasPressed) // THIS CODE IS WHAT ADVANCES TO THE NEXT LINE OF TEXT
         {
-            if (textNumber >= popupTexts.Length)
+            if (textNumber >= popupTexts.Length) // IF NO MORE LINES TO COME...
             {
-                Debug.Log("About to check !messagePlayed - " + messagePlayed);
-                if (!messagePlayed)
+                if (!messagePlayed && onTextExhausted != null)
                 {
-                    onTextExhausted.Raise(this, null); // NEED TO ESNURE REPEATABLE DOESN'T FIRE THIS AGAIN
-                    Debug.Log("Found as !messagePlayed - Called onTextExhausted");
+                    onTextExhausted.Raise(this, null); // CALL AN EVENT IF WE HAVE ONE FOR 'onTextExhausted'...
                 }
-                messagePlayed = true;
+                messagePlayed = true; // MARK THE MESSAGE AS PLAYED, THEN CALL 'ResetTextField'
                 ResetTextField();
             }
-            if (textNumber < popupTexts.Length && fieldIsActive)
+
+            if (textNumber < popupTexts.Length && fieldIsActive) // IF MORE LINES TO COME, GO TO THE NEXT LINE.
             {
                 textField.text = popupTexts[textNumber];
                 textNumber++;
@@ -64,22 +61,22 @@ public class TextPopup : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player" && fieldIsActive == false)
+        if (other.gameObject.tag == "Player" && fieldIsActive == false) // IF THE FIELD IS NOT ACTIVE, AND PLAYER ARRIVES
         {
-            textField.enabled = true;
-            if (textNumber == 0)
+            textField.enabled = true; // ACTIVATE THE TEXT FIELD.
+            if (textNumber == 0) // IF NO MESSAGES READ YET...
             {
-                textField.text = initialMessage;
-                messagePlayed = false; //NEW TRY
+                textField.text = initialMessage; // SHOW THE INITIAL PROMPT TEXT
+                messagePlayed = false; // ENSURE THE MESSSAGE IS NOT DEEMED TO BE PLAYED
             }
-            fieldIsActive = true;
+            fieldIsActive = true; // PREVENTS THE ABOVE CODE FROM FIRING EVERY FRAME AFTER IT HAS DONE ITS JOB.
         }
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player" && fieldIsActive == true)
+        if (other.gameObject.tag == "Player" && fieldIsActive == true) // IF THE PLAYER LEAVES THE ZONE, CALL 'ResetTextField'
         {
             ResetTextField();
         }
@@ -87,14 +84,14 @@ public class TextPopup : MonoBehaviour
 
     public void ResetTextField()
     {
-        if (isRepeatableMessage)
+        if (isRepeatableMessage) // IF RESETTING A REPEATABLE MESSAGE, SET THE TEXT BACK TO THE START
         {
             textNumber = 0;
             textField.text = initialMessage;
         }
         else
         {
-            textField.text = ("");
+            textField.text = (""); // OTHERWISE, MAKE THE TEXT NOTHING
         }
 
         textField.enabled = false;
@@ -102,11 +99,10 @@ public class TextPopup : MonoBehaviour
 
     }
 
-    public void ResetPopupTexts(int length)
+    public void ResetPopupTexts(int length) // A FUNCTION USED BY 'NewTextSet' TO RESIZE THE ARRAY OF TEXT LINES 
     {
         Array.Resize<string>(ref popupTexts, length);
         popupTexts = new string[length];
-        //Debug.Log("RESIZE TO: " + popupTexts.Length);
     }
 
 }

@@ -11,6 +11,7 @@ public class InventorySystem : MonoBehaviour
     public List<InvSlotUi> g_slots = new List<InvSlotUi>();
     public KeyCode inventoryKey;
 
+    // SETS UP THE INVENTORY UI SLOTS
     void Awake()
     {
         foreach (Transform slotGraphic in g_inventoryPanel)
@@ -33,6 +34,7 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    // THIS FUNCTION ADDS AN INVENTORY ITEM TO THE INVENTORY LIST IF THERE IS SPACE, THEN UPDATES THE UI
     public void AddItem(InventoryItem item)
     {
         if (Items.Count < g_slots.Count) // checks there are free  slots
@@ -49,7 +51,8 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    public int IdentifySlotFromItemType(InventoryItem name)
+    // THIS FUNCTION SEARCHES THROUGH THE INVENTORY LOOKING FOR ITEMS OF A TYPE - IT RETURNS AN INDEX OF THE LAST ONE FOUND
+    public int IdentifySlotFromItemType(InventoryItem name) 
     {
         int slotIndex = 0;
         int foundAtIndex = -1;
@@ -65,10 +68,11 @@ public class InventorySystem : MonoBehaviour
         return foundAtIndex;
     }
 
+    // THIS FUNCTION REMOVES AN INVENTORY ITEM BASED ON AN INDEX VALUE, THEN UPDATES THE LIST AND UI.
     public void RemoveItem(int itemToDrop)
     {
-        Items.Remove(Items[itemToDrop]);
-        g_slots[itemToDrop].ClearItem(); //-- This was working at clearing a slot, but not removing it.
+        Items.Remove(Items[itemToDrop]); // Removes the indexed item from the 'Items' list. NOT the UI.
+        g_slots[itemToDrop].ClearItem(); // Clears the UI slot for the removed item.
 
         for (int i = itemToDrop; i < g_slots.Count - 1; i++) // This goes through the g_slots from the item dropped, and copies the next item 'down'
         {

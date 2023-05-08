@@ -43,6 +43,10 @@ public class PickupThing : MonoBehaviour
 
     public void CollectionEvent()
     {
-        onThingAcquired.Raise(this, null);
+        if (onThingAcquired != null)
+        {
+            onThingAcquired.Raise(this, null);
+        }
+
     }
 }

@@ -7,6 +7,7 @@ public class NewTextSet : MonoBehaviour
     public TextPopup updateThis;
     public string[] newPopupTexts;
     public int existingTextFields;
+    public bool newTextIsRepeatable;
 
     [Header("Events")]
     public GameEvent onNewTextExhausted;
@@ -24,7 +25,6 @@ public class NewTextSet : MonoBehaviour
         if (newPopupTexts.Length != existingTextFields)
         {
             updateThis.ResetPopupTexts(newPopupTexts.Length);
-            //updateThis.popupTexts[] = new string popupTexts[newPopupTexts.Length];
         }
 
 
@@ -43,7 +43,7 @@ public class NewTextSet : MonoBehaviour
         updateThis.onTextExhausted = onNewTextExhausted;
         updateThis.isRepeatableMessage = true;
         updateThis.ResetTextField();
-        updateThis.isRepeatableMessage = false;
+        updateThis.isRepeatableMessage = newTextIsRepeatable;
         updateThis.messagePlayed = false;
     }
 }
