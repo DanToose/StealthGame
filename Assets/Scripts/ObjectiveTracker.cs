@@ -35,7 +35,7 @@ public class ObjectiveTracker : MonoBehaviour
         objCanvas.enabled = false;
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         if (Input.GetKeyUp(objectivesKey))
@@ -44,14 +44,13 @@ public class ObjectiveTracker : MonoBehaviour
         }
     }
 
-    public void AddObjective(GameObjective obj)
+    // ADDS OBJECTIVE TO THE OBJECTIVES LIST, AND UPDATES THE OBJ UI.
+    public void AddObjective(GameObjective obj) 
     {
-        Debug.Log("AddObjective called " + obj);
         if (Objectives.Count < o_slots.Count) // checks there are free  slots
         {
             Objectives.Add(obj);
             sourceToPlay.PlayOneShot(questStartTune, qStartVolume);
-            //Debug.Log("Objectives.Add fired");
         }
 
         foreach (ObjSlotUI slot in o_slots)
@@ -65,18 +64,17 @@ public class ObjectiveTracker : MonoBehaviour
         }
     }
 
+    // USES AN INDEX TO FIND THE OBJECTIVE IN THE LIST AND UI WITH THAT INDEX, THEN REMOVE IT FROM BOTH.
     public void RemoveObj(int objID)
     {
-        sourceToPlay.PlayOneShot(questEndTune, qEndVolume);
+        sourceToPlay.PlayOneShot(questEndTune, qEndVolume); // Plays sound on objective ending!
         int testIndex = 0;
         int slotIndex = 0;
         bool indexFound = false;
         foreach (ObjSlotUI slot in o_slots) // This should find the slot index, then remove that objective 
         {
-            //Debug.Log("slot.o_ID: " + slot.o_ID + " objID: " + objID + " and slotIndex: " + slotIndex);
             if (slot.o_ID == objID && !indexFound)
             {
-                Debug.Log("slot.o_ID and objID match" + objID);
                 slotIndex = testIndex;
                 indexFound = true;
             }
@@ -87,7 +85,7 @@ public class ObjectiveTracker : MonoBehaviour
         o_slots[slotIndex].ClearObj();
 
 
-        for (int i = slotIndex; i < o_slots.Count - 1; i++) // This goes through the g_slots from the item dropped, and copies the next item 'down'
+        for (int i = slotIndex; i < o_slots.Count - 1; i++) // This goes through the o_slots from the Objective removed, and copies the next item 'down' each time
         {
             o_slots[i].SetObj(o_slots[i + 1].Objective);
             if (o_slots[i].Objective == null)

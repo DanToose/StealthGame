@@ -32,26 +32,34 @@ public class GameObjective : MonoBehaviour
         objManager = GameObject.Find("ObjectiveManager");
         objMessageField = objManager.GetComponent<ObjectiveTracker>().objMessageField;
         objDoneMessageField = objManager.GetComponent<ObjectiveTracker>().objDoneMessageField;
-        if (objectiveActive)
-        {
-            StartQuest();
-        }
 
         if (involvesItemLoss || involvesItem)
         {
             iManager = FindObjectOfType<InventorySystem>();
         }
+
+        if (objectiveActive)
+        {
+            StartQuest();
+        }
+
+
     }
 
+    // THIS FUNCTION STARTS AN OBJECTIVE, ADDS IT TO THE OBJECTIVE UI, CALLS UI/SOUND FEEDBACK, MARKS IT AS ACTIVE
     public void StartQuest()
     {
         Debug.Log("Objective " + objectiveName + " started.");
         objectiveActive = true;
         StartCoroutine(ShowStartMessage());
         objManager.GetComponent<ObjectiveTracker>().AddObjective(this);
-        onObjectiveActivated.Raise(this, null);
+        if (onObjectiveActivated != null)
+        {
+            onObjectiveActivated.Raise(this, null);
+        }
 
-        if (involvesItem)
+
+        if (involvesItem) // IF THE OBJECTIVE INVOLVES AN ITEM, THIS CHECKS TO SEE IF THE PLAYER ALREADY HAS IT
         {
             int i = iManager.IdentifySlotFromItemType(itemRequired);
             if (i > -1)
@@ -61,7 +69,7 @@ public class GameObjective : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // THIS FUNCTION MOVES AN ACTIVE OBJECTIVE ONE 'STEP' AHEAD - THIS FINISHES ANY QUEST NOT ABOUT DOING EXACTLY THE SAME THING X TIMES.
     public void AddQuestStep()
     {
         if (objectiveActive)
@@ -71,13 +79,16 @@ public class GameObjective : MonoBehaviour
             {
                 objectiveCompleted = true;
                 StartCoroutine(ShowEndMessage());
-                if (involvesItemLoss)
+                if (involvesItemLoss) // IF THE OBJECTIVE INVOLVES USING / HANDING OVER AN ITEM, THIS HANDLES THAT.
                 {
                     Debug.Log("Removing " + itemToLose);
                     int i = iManager.IdentifySlotFromItemType(itemToLose);
                     iManager.RemoveItem(i);
                 }
-                onObjectiveCompleted.Raise(this, null);
+                if (onObjectiveCompleted != null)
+                {
+                    onObjectiveCompleted.Raise(this, null);
+                }
                 objManager.GetComponent<ObjectiveTracker>().RemoveObj(objectiveID);
                 Debug.Log("Objective " + objectiveName + " complete.");
             }
@@ -90,7 +101,7 @@ public class GameObjective : MonoBehaviour
         if (objMessageField.text != null)
         {
             objMessageField.text = "New objective: " + objectiveName;
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(5); // ADJUST THIS NUMBER TO MAKE OBJECTIVE STARTING TEXT STAY LONGER/SHORTER
             objMessageField.text = null;
         }
         else
@@ -106,7 +117,7 @@ public class GameObjective : MonoBehaviour
         if (objDoneMessageField.text != null)
         {
             objDoneMessageField.text = "Objective complete: " + objectiveName;
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(5); // ADJUST THIS NUMBER TO MAKE OBJECTIVE ENDING TEXT STAY LONGER/SHORTER
             objDoneMessageField.text = null;
         }
         else
