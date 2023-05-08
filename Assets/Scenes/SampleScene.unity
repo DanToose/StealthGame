@@ -3883,6 +3883,170 @@ MonoBehaviour:
   itemToLose: {fileID: 0}
   onObjectiveActivated: {fileID: 11400000, guid: 4df44f858ba2aa34c9ac9bf0f4268fd3, type: 2}
   onObjectiveCompleted: {fileID: 11400000, guid: 4df44f858ba2aa34c9ac9bf0f4268fd3, type: 2}
+--- !u!1 &534398071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 534398072}
+  - component: {fileID: 534398078}
+  - component: {fileID: 534398077}
+  - component: {fileID: 534398076}
+  - component: {fileID: 534398075}
+  - component: {fileID: 534398074}
+  - component: {fileID: 534398073}
+  m_Layer: 0
+  m_Name: EventZone-InfoOnEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &534398072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534398071}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.91, y: 0.649, z: -18.11}
+  m_LocalScale: {x: 0.52582, y: 0.52582, z: 0.52582}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 999628363}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &534398073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534398071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f14fdf3dc310154b9ab4b1a1836756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1e76ebd369f3ae34cbfbbdd8e9449dbe, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 534398075}
+        m_TargetAssemblyTypeName: InfoOnEvent, Assembly-CSharp
+        m_MethodName: PlayEventFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &534398074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534398071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96956c9ebb0db743abb0cc0f270be00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRepeatable: 1
+  onTriggerEntered: {fileID: 11400000, guid: 1e76ebd369f3ae34cbfbbdd8e9449dbe, type: 2}
+--- !u!114 &534398075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534398071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e96077d931394dbf6ef8f9ed780f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceToPlay: {fileID: 1711066144}
+  eventSoundClip: {fileID: 8300000, guid: 87ac17908c249224191755b5d4b01090, type: 3}
+  eventClipVolume: 1
+  eventTextField: {fileID: 2009048909}
+  eventTextToShow: I prefer the Leonard Cohen version, but whatever! I prefer the
+    Leonard Cohen version, but whatever! I prefer the Leonard Cohen version, but
+    whatever!
+  secondsToShow: 6
+  isRepeatable: 1
+  onInfoDelivered: {fileID: 0}
+--- !u!65 &534398076
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534398071}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &534398077
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534398071}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 8af2b84df613287419e34949e22002bb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &534398078
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534398071}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &539685018
 GameObject:
   m_ObjectHideFlags: 0
@@ -5260,6 +5424,7 @@ Transform:
   - {fileID: 1523035043}
   - {fileID: 841536734}
   - {fileID: 456551952}
+  - {fileID: 534398072}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7587,6 +7752,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5369045992556719701, guid: 1bc9aae09b6e0a747a1fb4c3dfad2ecb, type: 3}
   m_PrefabInstance: {fileID: 5369045991974080547}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2009048909 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6495301314549701156, guid: 5512f276e974df04d92dfe40306c7c96, type: 3}
+  m_PrefabInstance: {fileID: 6495301314703392386}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2035281572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1516223543967533378, guid: 691540cd5315bed4a882ee4a07201e3c, type: 3}
