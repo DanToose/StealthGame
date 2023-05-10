@@ -67,4 +67,9 @@ public class EventTimer : MonoBehaviour
         timerText.text = "";
         timerText.enabled = false;
     }
+
+    public void SetTimerValue(float newTime)
+    {
+        timeLeft = newTime;
+    }
 }
