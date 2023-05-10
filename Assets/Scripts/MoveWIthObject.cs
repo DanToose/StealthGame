@@ -13,19 +13,19 @@ public class MoveWithObject : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject == player)
+        if (other.gameObject == player)
         {
-            player.transform.SetParent(transform); // ties the player's transform to this object's transform.
+            player.transform.parent = transform; // ties the player's transform to this object's transform.
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject == player)
+        if (other.gameObject == player)
         {
-            player.transform.SetParent(null); // unties the player's transform from this object's transform.
+            player.transform.parent = null; // unties the player's transform from this object's transform.
         }
     }
 
