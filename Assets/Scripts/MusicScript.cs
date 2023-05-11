@@ -17,15 +17,41 @@ public class MusicScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soundSource.clip = musicOne;
+        ChangeMusic(1);
+
+    }
+
+
+    public void ChangeMusic(int tuneNumber)
+    {
+        if (tuneNumber == 1)
+        {
+            soundSource.clip = musicOne;
+        }
+        if (tuneNumber == 2)
+        {
+            soundSource.clip = musicTwo;
+        }
+        if (tuneNumber == 3)
+        {
+            soundSource.clip = musicThree;
+        }
+
+        //soundSource.clip = musicOne;
         soundSource.loop = true;
         soundSource.Play();
-
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ToggleMusic()
     {
-        
+        if (soundSource.isPlaying)
+        {
+            soundSource.Stop();
+        }
+        else
+        {
+            soundSource.Play();
+        }
     }
+
 }

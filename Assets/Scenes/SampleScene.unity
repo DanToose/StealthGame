@@ -6927,7 +6927,7 @@ MonoBehaviour:
   remoteSFXLocation: {fileID: 539685018}
   sourceToPlay: {fileID: 539685023}
   volume: 1.02
-  destructible: 0
+  destructible: 1
 --- !u!65 &1523035040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7081,7 +7081,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19594
+  m_Name: pb_Mesh19626
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8079,6 +8079,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.38755563
       objectReference: {fileID: 0}
+    - target: {fileID: 1423622156809477847, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: musicOne
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a1033b10a8de324db913b31b42c4590, type: 3}
+    - target: {fileID: 1423622156809477847, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: musicTwo
+      value: 
+      objectReference: {fileID: 8300000, guid: 87ac17908c249224191755b5d4b01090, type: 3}
     - target: {fileID: 2041821498561232928, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: respawn
       value: 
