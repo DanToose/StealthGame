@@ -8188,6 +8188,10 @@ PrefabInstance:
       value: 323
       objectReference: {fileID: 0}
     - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
+      propertyPath: targetIsInteractive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: carryablePromptsText
       value: 1
       objectReference: {fileID: 0}
@@ -8205,7 +8209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3387978276766116250, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: interactablePromptsText
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8473518871538200258, guid: bd4cebbd0bc0c72478e7bdb940d9614e, type: 3}
       propertyPath: HUDvignette
